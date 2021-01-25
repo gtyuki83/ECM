@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<form action="" method="post">
+    {{form}}
+    <input type="submit" value="更新">
+    {% csrf_token %}
+    <a href="{% url 'app2:list' %}">更新せずに戻る</a>
+</form>
+
+</html>

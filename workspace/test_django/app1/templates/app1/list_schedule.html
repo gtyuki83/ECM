@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スケジュール一覧</title>
+
+</head>
+
+<body>
+    <a href={% url 'app1:create' %}>新規作成</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>日時</th>
+                <th>名前</th>
+                <th>スケジュール</th>
+                <th>詳細</th>
+                <th>更新</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in object_list %}
+            <tr>
+                <td>{{ schedule.schedule_date }}</td>
+                <td>{{ schedule.user_name }}</td>
+                <td>{{ schedule.schedule }}</td>
+                <td><a href="{% url 'app1:detail' schedule.id %}">詳細</a></td>
+                <td><a href="{% url 'app1:update' schedule.id %}">更新</a></td>
+                <td><a href="{% url 'app1:delete' schedule.id %}">削除</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

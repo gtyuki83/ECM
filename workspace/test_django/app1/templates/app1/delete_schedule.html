@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+<form action="" method="post">
+    <p>"{{ object.schedule_date }}"に予定されている「{{object.schedule}}」を削除しますか？</p>
+    <input type="submit" value="はい">
+    {% csrf_token %}
+</form>
+
+</html>

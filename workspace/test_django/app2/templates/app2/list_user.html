@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー一覧</title>
+</head>
+
+<body>
+    <a href={% url 'app2:create' %}>新規作成</a>
+    <table>
+        <thead>
+            <tr>
+                <th>苗字</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>詳細</th>
+                <th>更新</th>
+                <th>削除</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in object_list %}
+            <tr>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.email }}</td>
+                <td><a href="{% url 'app2:detail' user.id %}">詳細</a></td>
+                <td><a href="{% url 'app2:update' user.id %}">更新</a></td>
+                <td><a href="{% url 'app2:delete' user.id %}">削除</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <a href="{% url 'app1:list' %}">みなさんのタスク一覧はこちら</a>
+    </table>
+</body>
+
+</html>
